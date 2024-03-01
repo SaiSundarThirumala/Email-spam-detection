@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>batch-6</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            /* background: linear-gradient( #ecb275,#fac390); */
+            /* background-color: lightblue; */
+            background-image: url("https://as2.ftcdn.net/v2/jpg/05/36/59/41/1000_F_536594133_tME8MiBDJ5nZF4KU6vmUMaSr6CTubfnQ.jpg");
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+        }
+
+        .form-section {
+            max-width: 400px;
+            margin: 20px auto;
+            padding-top: 10px;
+            padding-bottom: 20px;
+            padding-right: 90px;
+            padding-left:90px;
+            height: 550px;
+            background-color: rgb(211, 233, 241);
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            border: 2px solid black;
+            box-shadow: 3px 6px 40px #000;
+           
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: black;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            text-align: center;
+            border: 1px solid black;
+            box-sizing: border-box;
+            background-color: rgb(236, 236, 238);
+            box-shadow:3px 6px 40px rgb(61, 62, 62); 
+            border: 3px solid transparent;
+            border-image: linear-gradient(to bottom right, #046576 0%, #2c90fc 25%, #a432e6 50%,  #154f8d 75%, #510dd8 100%);
+            border-image-slice: 1;
+            height: 50px;
+            width: 400px;
+            
+        }
+
+        button {
+           top:50%;
+           background-color:#0a0a23;
+           color: #fff;
+           border:none;
+           border-radius:10px;
+           box-shadow: 0px 0px 2px 2px rgb(0,0,0);
+           width: 90px;
+           height: 30px;
+           margin-top: 10px;
+           margin-bottom: 10px;
+        }
+
+        button:hover {
+            background-color:rgb(166, 224, 244);
+            transform: scale(1.1);
+            transition: 0.1s;
+            color: black;
+            /* box-shadow:3    px 6px 40px rgb(248, 250, 251);  */
+        }
+
+        p {
+            margin-top: 20px;
+            color: black;
+        }
+        .con{
+            padding-top: 13px;
+            color: black;
+        }
+        
+        .form-section img{
+            padding-top: 20px;
+            padding-bottom: 20px;
+            height: 30vh;
+            width : 50vh;
+            margin-top:1px;
+            
+        }
+         .img1:hover{
+         transform: scale(1.1);
+         transition: 0.1s;
+        
+       }
+      
+    </style>
+</head>
+<body>
+    <h1>Email Spam Detection</h1>
+    <h1> IV-II Major Project (2024)</h1>
+    
+    <div class="form-section">
+      
+       
+  
+       <form method="post" action="{{ url_for('predict') }}">
+        <img src="https://editor.analyticsvidhya.com/uploads/51577istockphoto-875618304-612x612.jpg" alt="Image Description" class="img1"/>
+            <label for="message">Enter your message:</label>
+            <input type="text" placeholder="Enter your message...📩👈" />
+            <button type="submit">Predict</button>
+        </form>
+        <div class="con">
+        {% if result %}
+            <p>Input Message: {{ message }}</p>
+            <p>Prediction: {{ result }}</p>
+        {% endif %}
+        </div>
+    </div>
+</body>
+</html>
