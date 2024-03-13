@@ -1,0 +1,38 @@
+@startuml
+
+actor User as User
+rectangle "Email Spam Detection App" {
+  usecase "Train LSTM Model" as TrainModel
+  usecase "Make Predictions" as MakePredictions
+}
+
+rectangle "Flask Web Application" {
+  usecase "Run Application" as RunApp
+}
+
+rectangle "LSTM Model" {
+  usecase "Train Model" as TrainLSTM
+  usecase "Evaluate Model" as EvaluateModel
+  usecase "Predict" as Predict
+}
+
+rectangle "HTML Template" {
+  usecase "Render Home Page" as RenderHomePage
+  usecase "Handle Predictions" as HandlePredictions
+}
+
+User --> RunApp
+RunApp --> TrainModel
+RunApp --> MakePredictions
+
+TrainModel --> TrainLSTM
+TrainLSTM --> LSTMModel
+
+MakePredictions --> Predict
+Predict --> LSTMModel
+
+MakePredictions --> HandlePredictions
+HandlePredictions --> HTMLTemplate
+HTMLTemplate --> RunApp
+
+@enduml

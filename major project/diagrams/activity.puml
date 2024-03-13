@@ -1,0 +1,19 @@
+@startuml
+
+|User|
+start
+:Input email message;
+|Flask App|
+:Run Flask Application;
+|LSTM Model|
+:Train LSTM Model;
+:Make Predictions;
+|HTML Template|
+:Render Home Page;
+:Handle Predictions;
+|Flask App|
+:Display Result to User;
+stop
+|User|
+
+@enduml

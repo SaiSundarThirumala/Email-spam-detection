@@ -1,0 +1,33 @@
+@startuml
+
+class LSTMModel {
+  + rnn(): Model
+  + train_model(): void
+  + evaluate_model(): void
+  + predict(message: str): float
+}
+
+class FlaskApp {
+  - model: LSTMModel
+  + __init__(model: LSTMModel)
+  + run(): void
+}
+
+class HTMLTemplate {
+  + render_home_page(): void
+  + handle_predictions(message: str): void
+}
+
+class EmailSpamDetectionApp {
+  - lstmModel: LSTMModel
+  - flaskApp: FlaskApp
+  - htmlTemplate: HTMLTemplate
+  + __init__()
+  + run(): void
+}
+
+LSTMModel -- EmailSpamDetectionApp
+FlaskApp -- EmailSpamDetectionApp
+HTMLTemplate -- EmailSpamDetectionApp
+
+@enduml

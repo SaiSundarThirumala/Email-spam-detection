@@ -1,0 +1,17 @@
+@startuml
+
+actor User as User
+participant "Flask Web App" as FlaskApp
+participant "LSTM Model" as LSTMModel
+participant "HTML Template" as HTMLTemplate
+
+User -> FlaskApp: Request to make predictions
+FlaskApp -> LSTMModel: Call predict method with message
+LSTMModel -> LSTMModel: Tokenize and pad sequences
+LSTMModel -> LSTMModel: Use trained model to predict
+LSTMModel --> FlaskApp: Return prediction result
+FlaskApp -> HTMLTemplate: Render result in HTML
+HTMLTemplate --> FlaskApp: Display result to user
+FlaskApp --> User: Provide prediction result
+
+@enduml
