@@ -7,9 +7,9 @@
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            /* background: linear-gradient( #ecb275,#fac390); */
-            /* background-color: lightblue; */
+            background-color: #f2f2f2;
             background-image: url("https://as2.ftcdn.net/v2/jpg/05/36/59/41/1000_F_536594133_tME8MiBDJ5nZF4KU6vmUMaSr6CTubfnQ.jpg");
+
             color: #333;
             margin: 0;
             padding: 0;
@@ -17,7 +17,7 @@
 
         h1 {
             text-align: center;
-            color: white;
+            color: hsl(215, 19%, 88%);
         }
 
         .form-section {
@@ -43,6 +43,7 @@
             color: black;
         }
 
+
         input {
             width: 100%;
             padding: 10px;
@@ -61,7 +62,7 @@
         }
 
         button {
-           top:50%;
+            top:50%;
            background-color:#0a0a23;
            color: #fff;
            border:none;
@@ -83,7 +84,7 @@
 
         p {
             margin-top: 20px;
-            color: black;
+            color: #555;
         }
         .con{
             padding-top: 13px;
@@ -103,7 +104,6 @@
          transition: 0.1s;
         
        }
-      
     </style>
 </head>
 <body>
@@ -111,21 +111,19 @@
     <h1> IV-II Major Project (2024)</h1>
     
     <div class="form-section">
-      
-       
-  
-       <form method="post" action="{{ url_for('predict') }}">
-        <img src="https://editor.analyticsvidhya.com/uploads/51577istockphoto-875618304-612x612.jpg" alt="Image Description" class="img1"/>
+        
+        <form method="POST" action="/predict">
+            <img src="https://editor.analyticsvidhya.com/uploads/51577istockphoto-875618304-612x612.jpg" alt="Image Description" class="img1"/>
             <label for="message">Enter your message:</label>
-            <input type="text" placeholder="Enter your message...📩👈" />
+
+            <input type="text" id="message" placeholder="Enter your message...📩👈" name="message" required>
             <button type="submit">Predict</button>
         </form>
-        <div class="con">
+        <div class="con"></div>
         {% if result %}
             <p>Input Message: {{ message }}</p>
             <p>Prediction: {{ result }}</p>
         {% endif %}
-        </div>
     </div>
 </body>
 </html>
