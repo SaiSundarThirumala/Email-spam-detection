@@ -17,7 +17,7 @@
 
         h1 {
             text-align: center;
-            color: #007BFF;
+            color: hsl(215, 19%, 88%);
         }
 
         .form-section {
@@ -112,10 +112,11 @@
     
     <div class="form-section">
         
-        <form method="post" action="{{ url_for('predict') }}">
+        <form method="POST" action="/predict">
             <img src="https://editor.analyticsvidhya.com/uploads/51577istockphoto-875618304-612x612.jpg" alt="Image Description" class="img1"/>
             <label for="message">Enter your message:</label>
-            <input type="text" id="message" name="message" required>
+
+            <input type="text" id="message" placeholder="Enter your message...📩👈" name="message" required>
             <button type="submit">Predict</button>
         </form>
         <div class="con"></div>
